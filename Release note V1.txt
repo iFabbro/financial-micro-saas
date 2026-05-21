@@ -1,0 +1,38 @@
+# Financial Micro-SaaS MCP SQLite Server
+## Release Note V1
+
+### Summary
+La versione V1 del Financial Micro-SaaS MCP SQLite Server è stata completata con successo. Il progetto espone un server Model Context Protocol basato su SQLite, con schema centralizzato, tool core operativi, validazioni forti, audit logging, tracciabilità e una suite di test verde. [cite:161][cite:165]
+
+### Delivered Scope
+- Server MCP funzionante con handshake, discovery dei tool e chiamate JSON-RPC stabili. [web:257][cite:161]
+- Schema SQLite centralizzato e idempotente in `src/db_init.py`. [cite:161][web:176]
+- Tool core: `financial.initialize`, `financial.list_assets`, `financial.add_asset`, `financial.add_prices`, `portfolio.optimize`. [cite:161]
+- Ottimizzazione portfolio alimentata da prezzi reali letti dal database. [cite:161][cite:166]
+- Validazione degli input e gestione coerente degli errori. [web:203][web:207]
+- Logging operativo e audit strutturato per le elaborazioni di ottimizzazione. [cite:165][web:232]
+- Persistenza cronologica delle run tramite `created_at` su `portfolio_weights`. [web:214][cite:165]
+- Client MCP minimale per consumo end-to-end del server. [web:280][web:237]
+
+### Quality and Verification
+- Suite di test passata con successo lungo tutta la fase di sviluppo. [cite:161][cite:165]
+- Verifica end-to-end completata con inserimento asset, inserimento prezzi e ottimizzazione reale del portafoglio. [cite:161][cite:166]
+- Rifattorizzazione finale DRY della connessione SQLite tramite helper condiviso. [web:176][web:177]
+
+### Architectural Notes
+Il progetto mantiene una chiara separazione tra:
+- I/O e trasporto MCP nel server;
+- schema e connessione SQLite nel modulo DB;
+- logica matematica pura nel motore di ottimizzazione;
+- consumo del server tramite client minimale. [cite:161][cite:165]
+
+### Status
+La V1 è da considerarsi chiusa e pronta per uso operativo locale, integrazione con client esterni o sviluppo di livelli superiori come dashboard, reporting o automazione agentica. [cite:165][cite:163][cite:164]
+
+### Next Steps
+Le evoluzioni naturali successive alla V1 sono:
+- client/consumer più evoluto;
+- dashboard di reporting;
+- audit esteso;
+- integrazione con agenti e workflow;
+- hardening prodotto e packaging. [web:227][web:231][web:232][cite:163]
