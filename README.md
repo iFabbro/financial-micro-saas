@@ -1,7 +1,7 @@
 # financial-micro-saas
 
 [![Python](https://img.shields.io/badge/Python-3.13-blue)](https://www.python.org/)
-[![Tests](https://img.shields.io/badge/Tests-pytest-success)]()
+[![CI](https://github.com/iFabbro/financial-micro-saas/actions/workflows/ci.yml/badge.svg)](https://github.com/iFabbro/financial-micro-saas/actions/workflows/ci.yml)
 [![MCP](https://img.shields.io/badge/MCP-enabled-purple)]()
 [![Make](https://img.shields.io/badge/Makefile-ready-orange)]()
 
