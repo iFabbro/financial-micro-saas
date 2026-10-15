@@ -13,7 +13,7 @@ OUT.mkdir(parents=True, exist_ok=True)
 include = [
     "README.md",
     "AGENTS.md",
-    "Release note V1.txt",
+    "docs/release-v1-notes.md",
     "pyproject.toml",
     "requirements.txt",
     "src",

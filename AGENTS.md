@@ -1,11 +1,11 @@
-# AGENTS.md - Regole Globali per il Progetto Financial Micro-SaaS (Antigravity 2.0)
+# AGENTS.md - Regole Globali per il Progetto Financial Micro-SaaS
 
 Questo file definisce le regole globali per tutti gli agenti che lavorano su questo progetto.
 Deve essere rispettato in ogni azione, workflow e skill.
 
 ## 1. Ambiente e Dipendenze
 
-- Tutti i file Python devono essere scritti per **Python 3.12+**.
+- Tutti i file Python devono essere scritti per **Python 3.11+**.
 - Le dipendenze principali del progetto sono:
   - `aiosqlite>=0.19.0`
   - `python-dotenv`

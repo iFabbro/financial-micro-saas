@@ -1,6 +1,6 @@
 # financial-micro-saas
 
-[![Python](https://img.shields.io/badge/Python-3.13-blue)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/Python-3.11%2B-blue)](https://www.python.org/)
 [![CI](https://github.com/iFabbro/financial-micro-saas/actions/workflows/ci.yml/badge.svg)](https://github.com/iFabbro/financial-micro-saas/actions/workflows/ci.yml)
 [![MCP](https://img.shields.io/badge/MCP-enabled-purple)]()
 [![Make](https://img.shields.io/badge/Makefile-ready-orange)]()
@@ -18,10 +18,10 @@ Il progetto combina un database locale, un server MCP, un client di verifica e u
 - `make demo` completa seed, server, client e report.
 - `make clean-release-bundle` pulisce correttamente l’output di release.
 - Il progetto è operativo e coerente sul flusso base di sviluppo e verifica.
+- La CI su GitHub Actions esegue i test su Python 3.11, 3.12 e 3.13, il lint (`ruff`) e una scansione dei segreti (`gitleaks`).
 
 ## Troubleshooting
 
-- Se `make` fallisce con errori di sintassi, controlla che le recipe nel `Makefile` siano ancora valide e che non ci siano spazi al posto dei TAB.
 - Se `make test` fallisce, esegui prima `make install` per assicurarti che il pacchetto sia installato in editable mode.
 - Se la smoke demo non parte, verifica che il database demo sia stato rigenerato con `make reset-demo`.
 
