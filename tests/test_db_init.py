@@ -6,6 +6,7 @@ dall'eventuale DB di produzione in ./db/.
 """
 
 import os
+import sqlite3
 import sys
 import tempfile
 
@@ -14,7 +15,7 @@ import pytest
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from src.db_init import SCHEMA_DDL, get_db_connection, initialize_database, initialize_schema
+from src.db_init import get_db_connection, initialize_database, initialize_schema
 
 
 def _tmp_db() -> str:
@@ -189,7 +190,7 @@ async def test_prices_unique_constraint():
             )
             await conn.commit()
 
-            with pytest.raises(Exception):  # UNIQUE constraint
+            with pytest.raises(sqlite3.IntegrityError):  # UNIQUE constraint
                 await conn.execute(
                     "INSERT INTO prices (asset_id, date, close) VALUES (?, '2024-01-01', 205.0)",
                     (asset_id,),

@@ -12,7 +12,6 @@ from typing import List, Dict, Any, Optional
 from dataclasses import dataclass
 from dataclasses import asdict
 
-import asyncio
 import pandas as pd
 from pypfopt import EfficientFrontier, HRPOpt, risk_models, expected_returns
 from pypfopt.exceptions import OptimizationError
@@ -79,7 +78,7 @@ async def optimize_portfolio(
             expected_return, volatility, sharpe_ratio = hrp.portfolio_performance()
 
     except OptimizationError as e:
-        raise RuntimeError(f"Portfolio optimization failed: {e}")
+        raise RuntimeError(f"Portfolio optimization failed: {e}") from e
 
     # prepara il dict finito
     weights = {ticker: value for ticker, value in raw_weights.items() if value > 0.0001}
