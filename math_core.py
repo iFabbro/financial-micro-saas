@@ -116,9 +116,9 @@ async def calculate_efficient_frontier(
             }
 
         except PyPortfolioOptError as e:
-            raise OptimizationError(f"PyPortfolioOpt solver failed: {e}")
+            raise OptimizationError(f"PyPortfolioOpt solver failed: {e}") from e
         except Exception as e:
-            raise OptimizationError(f"Optimization failed: {e}")
+            raise OptimizationError(f"Optimization failed: {e}") from e
 
     result = await loop.run_in_executor(_executor, _sync_optimize)
     return result
@@ -202,11 +202,11 @@ async def calculate_sharpe_ratio(
             return float(sharpe)
 
         except PyPortfolioOptError as e:
-            raise OptimizationError(f"Sharpe calculation failed: {e}")
+            raise OptimizationError(f"Sharpe calculation failed: {e}") from e
         except Exception as e:
             if isinstance(e, (InsufficientDataError, OptimizationError)):
                 raise
-            raise OptimizationError(f"Sharpe ratio calculation failed: {e}")
+            raise OptimizationError(f"Sharpe ratio calculation failed: {e}") from e
 
     result = await loop.run_in_executor(_executor, _sync_sharpe)
     return result
